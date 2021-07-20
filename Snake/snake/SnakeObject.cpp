@@ -8,13 +8,16 @@ game::SnakeObject::SnakeObject(Point startPos)
 	m_nodes.push_back(std::make_shared<SnakeNodeHead>(m_headPos, MoveDirection::Right));
 }
 
-std::vector<game::Point> game::SnakeObject::getPosition()
+std::vector<game::Point> game::SnakeObject::getTailPosition()
 {
 	std::vector<Point> result;
 
 	for (auto node : m_nodes)
 	{
-		result.push_back(node->getPos());
+		if (node != m_nodes.back())
+		{
+			result.push_back(node->getPos());
+		}
 	}
 
 	return result;

@@ -28,6 +28,6 @@ namespace game
 		static const int START_SNAKE_POSITION_X = 5;
 		static const int START_SNAKE_POSITION_Y = 5;
 		static const int DEFAULT_GAME_UPDATE_SPEED = 50;
-		static const int DEFAULT_GAME_KEYBOARD_READ_SPEED = 10;
+		static const int DEFAULT_GAME_KEYBOARD_READ_SPEED = 5;
 	}
 }

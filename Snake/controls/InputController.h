@@ -1,12 +1,11 @@
 #pragma once
+#include "IInputController.h"
 
 namespace game
 {
-	class InputController
+	class InputController : public IInputController
 	{
 	public:
-		MoveDirection inputKey();
-	private:
-		MoveDirection parseInputKey(const int key);
+		int inputKey() override;
 	};
 }

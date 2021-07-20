@@ -7,7 +7,7 @@ namespace game
 	{
 	public:
 		SnakeObject(Point startPos);
-		std::vector<Point> getPosition();
+		std::vector<Point> getTailPosition();
 		Point getHeadPos();
 		void updateDirection(MoveDirection direction = MoveDirection::None);
 		void updatePosition();

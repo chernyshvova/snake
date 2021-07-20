@@ -16,6 +16,7 @@ namespace game
 		void updateDirection(MoveDirection direction);
 		bool checkBorderCollision();
 		bool checkBonusCollision();
+		bool checkTailCollision();
 		void spawnBonus();
 		void addSnakeTail();
 		

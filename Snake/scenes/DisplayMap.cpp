@@ -85,7 +85,7 @@ std::string game::DisplayMap::build()
 
 	mergedElements[3] += config::SCORE_LABEL + std::to_string(m_score);
 
-	for (auto pos : m_snake.getPosition())
+	for (auto pos : m_snake.getTailPosition())
 	{
 		setObjectToMap(mergedElements, pos, config::SNAKE_BODY_SYMB);
 	}
@@ -116,6 +116,20 @@ bool game::DisplayMap::checkBonusCollision()
 {
 	auto headPos = m_snake.getHeadPos();
 	return headPos.y == m_nextBonusPos.y && headPos.x == m_nextBonusPos.x;
+}
+
+bool game::DisplayMap::checkTailCollision()
+{
+	auto headPos = m_snake.getHeadPos();
+
+	for (auto tail : m_snake.getTailPosition())
+	{
+		if (headPos.x == tail.x && headPos.y == tail.y)
+		{
+			return true;
+		}
+	}
+	return false;
 }
 
 void game::DisplayMap::spawnBonus()

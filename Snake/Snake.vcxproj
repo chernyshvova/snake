@@ -107,6 +107,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Create</PrecompiledHeader>
       <AdditionalIncludeDirectories>$(MSBuildProjectDirectory)/snake/;$(MSBuildProjectDirectory);$(MSBuildProjectDirectory)/controls;$(MSBuildProjectDirectory)/scenes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -141,6 +142,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Create</PrecompiledHeader>
       <AdditionalIncludeDirectories>$(MSBuildProjectDirectory)/snake/;$(MSBuildProjectDirectory);$(MSBuildProjectDirectory)/controls;$(MSBuildProjectDirectory)/scenes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -152,10 +154,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="controls\DrawController.cpp" />
+    <ClCompile Include="controls\IDrawController.cpp" />
+    <ClCompile Include="controls\IInputController.cpp" />
     <ClCompile Include="controls\InputController.cpp" />
     <ClCompile Include="scenes\ContentConstructorUtils.cpp" />
     <ClCompile Include="scenes\DisplayMap.cpp" />
-    <ClCompile Include="scenes\GameManager.cpp" />
+    <ClCompile Include="scenes\GameScene.cpp" />
+    <ClCompile Include="scenes\SceneBase.cpp" />
     <ClCompile Include="Snake.cpp" />
     <ClCompile Include="snake\SnakeNode.cpp" />
     <ClCompile Include="snake\SnakeNodeBase.cpp" />
@@ -165,11 +170,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controls\DrawController.h" />
+    <ClInclude Include="controls\IDrawController.h" />
+    <ClInclude Include="controls\IInputController.h" />
     <ClInclude Include="controls\InputController.h" />
     <ClInclude Include="scenes\ContentConstructorUtils.h" />
     <ClInclude Include="scenes\DisplayMap.h" />
     <ClInclude Include="scenes\GameConfig.h" />
-    <ClInclude Include="scenes\GameManager.h" />
+    <ClInclude Include="scenes\GameScene.h" />
+    <ClInclude Include="scenes\SceneBase.h" />
     <ClInclude Include="snake\SnakeNode.h" />
     <ClInclude Include="snake\SnakeNodeBase.h" />
     <ClInclude Include="snake\SnakeNodeHead.h" />
