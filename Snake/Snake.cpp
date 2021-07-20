@@ -3,10 +3,7 @@
 
 int main()
 {
-    //for (int i = 0; i < 255; ++i)
-    //{
-    //    std::cout << (char)i;
-    //}
+    //Start first scene
     game::MenuScene scene;
     scene.run();
 }

@@ -4,6 +4,7 @@
 
 namespace game
 {
+	//Controller for drawing in windows console
 	class DrawController : public IDrawController
 	{
 	public:

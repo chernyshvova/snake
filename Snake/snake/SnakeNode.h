@@ -3,6 +3,7 @@
 
 namespace game
 {
+	//part of snake tail. Has next node for position changing
 	class SnakeNode : public SnakeNodeBase
 	{
 	public:

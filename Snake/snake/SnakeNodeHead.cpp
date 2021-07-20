@@ -7,6 +7,7 @@ game::SnakeNodeHead::SnakeNodeHead(const Point pos, MoveDirection direction)
 	m_moveDirection = direction;
 }
 
+//Get new direction for head. Skip if a new direction conficts with currection direction
 void game::SnakeNodeHead::updateDirection(MoveDirection direction)
 {
 	if (direction == MoveDirection::None)
@@ -35,6 +36,7 @@ game::Point game::SnakeNodeHead::getNextPos()
 	return resolveNextPos();
 }
 
+//Get new position for head
 game::Point game::SnakeNodeHead::resolveNextPos()
 {
 	Point nextPos = m_pos;

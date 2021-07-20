@@ -4,6 +4,7 @@
 
 namespace game
 {
+	//base scene. All scenes or game screens are heirs from the scene.
 	class SceneBase
 	{
 	public:

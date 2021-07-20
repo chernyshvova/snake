@@ -2,24 +2,33 @@
 #include "GameScene.h"
 #include "GameConfig.h"
 #include "DrawController.h"
-
+#include "AutomateInputController.h"
 
 game::GameScene::GameScene()
 	: m_displayMap({ config::START_SNAKE_POSITION_X, config::START_SNAKE_POSITION_Y })
 {
-}
+	//init controllers
+	m_inputController = std::make_shared<InputController>();
+	m_drawController = std::make_shared<DrawController>(config::GAME_MAX_WIN_H, config::GAME_MAX_WIN_W);
+}  
 
+//Run thrad for graphic and input
 void game::GameScene::run()
 {
-	m_drawController = std::make_shared<DrawController>(config::GAME_MAX_WIN_H, config::GAME_MAX_WIN_W);
-	m_inputController = std::make_shared<InputController>();
-
 	m_threads.push_back(std::thread(&GameScene::startDisplay, this));
 	m_threads.push_back(std::thread(&GameScene::startInputController, this));
 
 	SceneBase::run();
 }
 
+//turn on for demo mode
+void game::GameScene::enableAutomateMode()
+{
+	m_inputController = std::make_shared<AutomateInputController>(m_displayMap);
+	m_updateSpeed = config::AUTOMATE_MODE_UPDATE_SPEED;
+}
+
+//draw scene and lock resources to prevent changing them while drawing
 void game::GameScene::drawScene()
 {
 	m_lockGuard.lock();
@@ -31,7 +40,6 @@ void game::GameScene::startDisplay()
 {
 	while (!m_isGameOver)
 	{
-		update();
 		drawScene();
 
 		if (m_displayMap.checkBorderCollision())
@@ -52,9 +60,11 @@ void game::GameScene::startDisplay()
 		}
 
 		m_displayMap.update();
+		update();
 	}
 }
 
+//read keyboard key and lock resources for diplay data modify
 void game::GameScene::startInputController()
 {
 	while (!m_isGameOver)

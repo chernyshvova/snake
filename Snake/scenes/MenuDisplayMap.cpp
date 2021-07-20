@@ -9,6 +9,7 @@ game::MenuDisplayMap::MenuDisplayMap()
 
 }
 
+//prepare string for showing in display
 std::string game::MenuDisplayMap::build()
 {
 	std::vector<std::string> options{
@@ -30,6 +31,7 @@ std::string game::MenuDisplayMap::build()
 	return res;
 }
 
+//change target option
 void game::MenuDisplayMap::updateMenuCursor(MenuOption option)
 {
 	m_cureentMenuCursor = option;

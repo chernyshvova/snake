@@ -3,6 +3,7 @@
 #include "GameScene.h"
 #include "DrawController.h"
 #include "GameConfig.h"
+#include "AutomateInputController.h"
 
 namespace
 {
@@ -38,6 +39,7 @@ namespace
 	}
 }
 
+//initialize menu callbacks, controls and thread for drawing and input
 void game::MenuScene::run()
 {
 	m_updateSpeed = config::DEFAULT_GAME_UPDATE_SPEED;
@@ -49,8 +51,9 @@ void game::MenuScene::run()
 
 	m_options[MenuOption::DemoMode] = []()
 	{
-		GameScene().run();
-		//TODO set autoplay
+		GameScene scene;
+		scene.enableAutomateMode();
+		scene.run();
 	};
 
 	m_options[MenuOption::Exit] = [this]()

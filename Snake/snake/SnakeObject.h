@@ -14,6 +14,7 @@ namespace game
 		Point getNextHeadPos();
 		bool isSnakePos(Point pos);
 		void addNode();
+		MoveDirection getHeadDirection();
 
 	private:
 		std::list<std::shared_ptr<SnakeNodeBase>> m_nodes;

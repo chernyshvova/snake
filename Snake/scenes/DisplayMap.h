@@ -19,6 +19,11 @@ namespace game
 		bool checkTailCollision();
 		void spawnBonus();
 		void addSnakeTail();
+		Point getBonusPos();
+		std::vector<Point> getTailPoints();
+		Point getSnakeHeadPos();
+		MoveDirection getSnakeDirection();
+		std::vector<Point> getWallPoints();
 		
 	private:
 		DisplayElementMap m_border;
@@ -26,7 +31,7 @@ namespace game
 		size_t m_maxHeight;
 		int m_score;
 		SnakeObject m_snake;
-		Point m_nextBonusPos;
+		Point m_bonusPos;
 	};
 }
 

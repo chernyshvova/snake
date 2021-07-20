@@ -3,6 +3,7 @@
 
 namespace game
 {
+	//base node for base functionality
 	class SnakeNodeBase
 	{
 	public:

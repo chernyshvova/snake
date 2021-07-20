@@ -1,6 +1,7 @@
 #include "DrawController.h"
 #include "stdafx.h"
 
+//set consile size for convenience
 game::DrawController::DrawController(const size_t maxWinH, const size_t maxWinW)
 {
     HWND console = GetConsoleWindow();
@@ -15,6 +16,7 @@ void game::DrawController::draw(const std::string& map)
 	std::cout << map;
 }
 
+//https://www.cplusplus.com/articles/4z18T05o/
 void game::DrawController::clear()
 {
     HANDLE                     hStdOut;

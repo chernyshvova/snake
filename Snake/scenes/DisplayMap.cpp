@@ -5,6 +5,7 @@
 
 namespace
 {
+	//Merge two elemets with same size. It function can be using for merging several walls textures or UI elements
 	game::DisplayElementMap mergeElements(const game::DisplayElementMap& left, const game::DisplayElementMap right)
 	{
 		std::string emptyLine = std::string(left.begin()->size(), ' ');
@@ -34,6 +35,7 @@ namespace
 		return merged;
 	}
 
+	//Converting array of strings to strings display
 	std::string convertMapToString(const game::DisplayElementMap& map)
 	{
 		std::string result = {};
@@ -47,6 +49,7 @@ namespace
 		return result;
 	}
 
+	//random for bonus
 	int getRandomPoint(const int min, const int max)
 	{
 		srand((unsigned int)time(NULL));
@@ -65,6 +68,7 @@ game::DisplayMap::DisplayMap(const Point snakeStartPosition)
 	spawnBonus();
 }
 
+//snake makes move without drawing
 void game::DisplayMap::update()
 {
 	m_snake.updatePosition();
@@ -76,22 +80,28 @@ void game::DisplayMap::increaseScore()
 	m_snake.addNode();
 }
 
+//prepare actual string for drawing.
 std::string game::DisplayMap::build()
 {
 	std::string emptyLine = std::string(m_maxWidht, config::MAP_EMPTY_SYMB);
 	DisplayElementMap mergedElements(m_maxHeight, emptyLine);
 	
+	//Empty map with borders(walls)
 	mergedElements = mergeElements(mergedElements, m_border);
 
+	//add string with score
 	mergedElements[3] += config::SCORE_LABEL + std::to_string(m_score);
 
+	//add tail and snake head
 	for (auto node : m_snake.getTail())
 	{
 		setObjectToMap(mergedElements, node->getPos(), config::SNAKE_BODY_SYMB);
 	}
 
 	setObjectToMap(mergedElements, m_snake.getHeadPos(), config::SNAKE_HEAD_SYMB);
-	setObjectToMap(mergedElements, m_nextBonusPos, config::BONUS_SYMB);
+
+	//add bonus
+	setObjectToMap(mergedElements, m_bonusPos, config::BONUS_SYMB);
 	return convertMapToString(mergedElements);
 }
 
@@ -100,6 +110,7 @@ void game::DisplayMap::setObjectToMap(DisplayElementMap& map, const Point pos, c
 	map[pos.y][pos.x] = symb;
 }
 
+//Update snake direction without drawing
 void game::DisplayMap::updateDirection(MoveDirection direction)
 {
 	m_snake.updateDirection(direction);
@@ -115,7 +126,7 @@ bool game::DisplayMap::checkBorderCollision()
 bool game::DisplayMap::checkBonusCollision()
 {
 	auto headPos = m_snake.getHeadPos();
-	return headPos.y == m_nextBonusPos.y && headPos.x == m_nextBonusPos.x;
+	return headPos.y == m_bonusPos.y && headPos.x == m_bonusPos.x;
 }
 
 bool game::DisplayMap::checkTailCollision()
@@ -141,7 +152,7 @@ void game::DisplayMap::spawnBonus()
 		
 		if (newPosSymb == config::MAP_EMPTY_SYMB)
 		{
-			m_nextBonusPos = bonusPos;
+			m_bonusPos = bonusPos;
 			return;
 		}
 
@@ -149,7 +160,53 @@ void game::DisplayMap::spawnBonus()
 	}
 }
 
+//Add new node for tail
 void game::DisplayMap::addSnakeTail()
 {
 	m_snake.addNode();
+}
+
+game::Point game::DisplayMap::getBonusPos()
+{
+	return m_bonusPos;
+}
+
+std::vector<game::Point> game::DisplayMap::getTailPoints()
+{
+	std::vector<Point> res = {};
+
+	for (auto tailNode : m_snake.getTail())
+	{
+		res.push_back(tailNode->getPos());
+	}
+
+	return res;
+}
+
+game::Point game::DisplayMap::getSnakeHeadPos()
+{
+	return m_snake.getHeadPos();
+}
+
+game::MoveDirection game::DisplayMap::getSnakeDirection()
+{
+	return m_snake.getHeadDirection();
+}
+
+std::vector<game::Point> game::DisplayMap::getWallPoints()
+{
+	std::vector<Point> res = {};
+
+	for (int i=0; i< m_border.size(); ++i)
+	{
+		for (int j =0; j< m_border[i].size(); ++j)
+		{
+			if (m_border[i][j] == config::BORDER_SYMB_VERTICAL || m_border[i][j] == config::BORDER_SYMB_HORISONTAL)
+			{
+				res.push_back({ j, i });
+			}
+		}
+	}
+	return res;
+
 }

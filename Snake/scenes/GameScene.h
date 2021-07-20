@@ -4,11 +4,13 @@
 
 namespace game
 {
+	//Scene for base gameplay
 	class GameScene : public SceneBase
 	{
 	public:
 		GameScene();
 		virtual void run() override;
+		void enableAutomateMode();
 
 	private:
 		void startDisplay();

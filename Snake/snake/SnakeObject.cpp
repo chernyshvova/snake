@@ -68,6 +68,10 @@ void game::SnakeObject::addNode()
 	auto lastPos = lastNode->getPos();
 	auto lastDirection = lastNode->getMoveDirection();
 
-	//updatePosition();
 	m_nodes.push_front(std::make_shared<SnakeNode>(lastPos, lastDirection, lastNode));
+}
+
+game::MoveDirection game::SnakeObject::getHeadDirection()
+{
+	return m_nodes.back()->getMoveDirection();
 }

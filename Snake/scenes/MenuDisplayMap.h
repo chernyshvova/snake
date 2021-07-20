@@ -2,7 +2,9 @@
 
 namespace game
 {
+	//Callback that using in some menu item
 	using OptionCallback =  std::function<void()>;
+
 	enum class MenuOption
 	{
 		None = 0,
@@ -11,6 +13,7 @@ namespace game
 		Exit
 	};
 
+	//Class for creating menu in console. Builder for menu strings
 	class MenuDisplayMap
 	{
 	public:

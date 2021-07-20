@@ -7,9 +7,9 @@ game::SceneBase::SceneBase()
 	, m_isSceneFinish(false)
 	, m_updateSpeed(config::DEFAULT_GAME_UPDATE_SPEED)
 {
-
 }
 
+//base implementation for thread waiting
 void game::SceneBase::run()
 {
 	for (auto& thread : m_threads)
@@ -18,6 +18,7 @@ void game::SceneBase::run()
 	}
 }
 
+//base implementation for control FPS in scenes
 void game::SceneBase::update()
 {
 	std::this_thread::sleep_for(std::chrono::milliseconds(m_updateSpeed));

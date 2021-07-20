@@ -51,10 +51,13 @@
     <ClCompile Include="scenes\SceneBase.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MenuScene.cpp">
+    <ClCompile Include="scenes\MenuScene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MenuDisplayMap.cpp">
+    <ClCompile Include="scenes\MenuDisplayMap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="controls\AutomateInputController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -101,13 +104,16 @@
     <ClInclude Include="scenes\SceneBase.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="scenes\MenuScene.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="scenes\MenuDisplayMap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="controls\IInputController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MenuScene.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MenuDisplayMap.h">
+    <ClInclude Include="controls\AutomateInputController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

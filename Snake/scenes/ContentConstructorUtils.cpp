@@ -2,6 +2,17 @@
 #include "ContentConstructorUtils.h"
 #include "GameConfig.h"
 
+/*
+Create border map.There is implementing wall form crating.
+
+another example of walls
+
+return{{###########},
+	   {###    ####},
+	   {###    ####},
+	   {###########}},
+*/
+
 std::vector<std::string> game::createBorderMap(const size_t maxWith, const size_t maxHeight)
 {
 	std::string emptyLine = std::string(maxWith, config::MAP_EMPTY_SYMB);
