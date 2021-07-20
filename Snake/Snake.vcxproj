@@ -154,8 +154,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="controls\DrawController.cpp" />
-    <ClCompile Include="controls\IDrawController.cpp" />
-    <ClCompile Include="controls\IInputController.cpp" />
     <ClCompile Include="controls\InputController.cpp" />
     <ClCompile Include="MenuDisplayMap.cpp" />
     <ClCompile Include="MenuScene.cpp" />

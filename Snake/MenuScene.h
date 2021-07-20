@@ -7,7 +7,7 @@ namespace game
 	class MenuScene : public SceneBase
 	{
 	public:
-		MenuScene();
+		MenuScene() = default;
 		virtual void run() override;
 		void drawScene();
 		void exit();
@@ -20,7 +20,6 @@ namespace game
 		bool m_isFinish = false;
 		std::map<MenuOption, OptionCallback> m_options;
 		MenuDisplayMap m_displayMap;
-		int m_updateSpeed;
 	};
 }
 

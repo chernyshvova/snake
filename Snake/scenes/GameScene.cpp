@@ -6,13 +6,12 @@
 
 game::GameScene::GameScene()
 	: m_displayMap({ config::START_SNAKE_POSITION_X, config::START_SNAKE_POSITION_Y })
-	, m_updateSpeed(config::DEFAULT_GAME_UPDATE_SPEED)
 {
 }
 
 void game::GameScene::run()
 {
-	m_drawController = std::make_shared<DrawController>();
+	m_drawController = std::make_shared<DrawController>(config::GAME_MAX_WIN_H, config::GAME_MAX_WIN_W);
 	m_inputController = std::make_shared<InputController>();
 
 	m_threads.push_back(std::thread(&GameScene::startDisplay, this));
@@ -32,8 +31,7 @@ void game::GameScene::startDisplay()
 {
 	while (!m_isGameOver)
 	{
-		std::this_thread::sleep_for(std::chrono::milliseconds(m_updateSpeed));
-		m_drawController->clear();
+		update();
 		drawScene();
 
 		if (m_displayMap.checkBorderCollision())
@@ -45,6 +43,7 @@ void game::GameScene::startDisplay()
 		{
 			m_displayMap.increaseScore();
 			m_displayMap.spawnBonus();
+			m_updateSpeed-= config::SPEED_DIFFICULT_STEP;
 		}
 		else if (m_displayMap.checkTailCollision())
 		{

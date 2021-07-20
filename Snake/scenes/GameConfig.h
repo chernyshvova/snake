@@ -36,7 +36,16 @@ namespace game
 		static const size_t MAX_MAP_HEIGHT = 30;
 		static const int START_SNAKE_POSITION_X = 5;
 		static const int START_SNAKE_POSITION_Y = 5;
-		static const int DEFAULT_GAME_UPDATE_SPEED = 50;
+		static const int DEFAULT_GAME_UPDATE_SPEED = 100;
 		static const int DEFAULT_GAME_KEYBOARD_READ_SPEED = 5;
+		static const int SPEED_DIFFICULT_STEP = 1;
+
+		static const size_t GAME_MAX_WIN_H = 550;
+		static const size_t GAME_MAX_WIN_W = 1000;
+
+		static const size_t MENU_MAX_WIN_H = 200;
+		static const size_t MENU_MAX_WIN_W = 800;
+		static const size_t WIN_UPDATE_TIMEOUT = 10000;
+
 	}
 }

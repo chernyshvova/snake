@@ -19,7 +19,6 @@ namespace game
 
 	private:
 		DisplayMap m_displayMap;
-		int m_updateSpeed;
 		bool m_isGameOver = false;
 	};
 }

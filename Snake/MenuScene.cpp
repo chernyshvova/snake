@@ -37,11 +37,7 @@ namespace
 		}
 	}
 }
-game::MenuScene::MenuScene()
-	:  m_updateSpeed(config::DEFAULT_GAME_UPDATE_SPEED)
-{
 
-}
 void game::MenuScene::run()
 {
 	m_updateSpeed = config::DEFAULT_GAME_UPDATE_SPEED;
@@ -63,7 +59,7 @@ void game::MenuScene::run()
 	};
 
 
-	m_drawController = std::make_shared<DrawController>();
+	m_drawController = std::make_shared<DrawController>(config::MENU_MAX_WIN_H, config::MENU_MAX_WIN_W);
 	m_inputController = std::make_shared<InputController>();
 
 	m_threads.push_back(std::thread(&MenuScene::startDisplay, this));
@@ -88,8 +84,7 @@ void game::MenuScene::startDisplay()
 {
 	while (!m_isFinish)
 	{
-		std::this_thread::sleep_for(std::chrono::milliseconds(m_updateSpeed));
-		m_drawController->clear();
+		update();
 		drawScene();
 	}
 }
