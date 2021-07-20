@@ -8,3 +8,6 @@
 #include <conio.h>
 #include <memory>
 #include "Types.h"
+#include <functional>
+#include <utility>
+#include <map>

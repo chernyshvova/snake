@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "SceneBase.h"
 
-void game::SceneBase::init()
+void game::SceneBase::run()
 {
 	for (auto& thread : m_threads)
 	{

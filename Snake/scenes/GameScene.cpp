@@ -10,7 +10,7 @@ game::GameScene::GameScene()
 {
 }
 
-void game::GameScene::init()
+void game::GameScene::run()
 {
 	m_drawController = std::make_shared<DrawController>();
 	m_inputController = std::make_shared<InputController>();
@@ -18,7 +18,7 @@ void game::GameScene::init()
 	m_threads.push_back(std::thread(&GameScene::startDisplay, this));
 	m_threads.push_back(std::thread(&GameScene::startInputController, this));
 
-	SceneBase::init();
+	SceneBase::run();
 }
 
 void game::GameScene::drawScene()

@@ -8,7 +8,7 @@ namespace game
 	{
 	public:
 		GameScene();
-		virtual void init() override;
+		virtual void run() override;
 
 	private:
 		void startDisplay();

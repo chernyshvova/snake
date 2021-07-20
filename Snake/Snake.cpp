@@ -1,9 +1,9 @@
 #include "stdafx.h"
-#include "GameScene.h"
+#include "MenuScene.h"
 
 int main()
 {
-    game::GameScene scene;
-    scene.init();
+    game::MenuScene scene;
+    scene.run();
 }
 

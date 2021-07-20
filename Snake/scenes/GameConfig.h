@@ -12,6 +12,13 @@ namespace game
 		static const char SNAKE_HEAD_SYMB = '@';
 		static const char BONUS_SYMB = '+';
 
+		//menu scenes
+		static const char MENU_CURSOR = '*';
+		static const std::string NEW_GAME_LABEL = "NEW GAME";
+		static const std::string MENU_LABEL = "MENU:";
+		static const std::string DEMO_MOVE_LABEL = "DEMO MODE";
+		static const std::string EXIT_LABEL = "EXIT";
+
 		//keys
 		static const int INPUT_KEY_TOP = 72;
 		static const int INPUT_KEY_TOP_ALTERNATIVE = 119;
@@ -21,6 +28,8 @@ namespace game
 		static const int INPUT_KEY_LEFT_ALTERNATIVE = 97;
 		static const int INPUT_KEY_RIGHT = 77;
 		static const int INPUT_KEY_RIGHT_ALTERNATIVE = 100;
+
+		static const int INPUT_KEY_ENTER = 13;
 
 		//level default config
 		static const size_t MAX_MAP_WIDTH = 100;
