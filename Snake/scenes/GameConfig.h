@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 namespace game
 {
 	namespace config
@@ -6,6 +6,7 @@ namespace game
 		//resources
 		static const char BORDER_SYMB_HORISONTAL = '=';
 		static const char BORDER_SYMB_VERTICAL = '|';
+
 		static const char MAP_EMPTY_SYMB = ' ';
 		static const std::string SCORE_LABEL = "SCORE: ";
 		static const char SNAKE_BODY_SYMB = '*';
@@ -38,7 +39,7 @@ namespace game
 		static const int START_SNAKE_POSITION_Y = 5;
 		static const int DEFAULT_GAME_UPDATE_SPEED = 100;
 		static const int DEFAULT_GAME_KEYBOARD_READ_SPEED = 5;
-		static const int SPEED_DIFFICULT_STEP = 1;
+		static const int SPEED_DIFFICULT_STEP = 10;
 
 		static const size_t GAME_MAX_WIN_H = 550;
 		static const size_t GAME_MAX_WIN_W = 1000;

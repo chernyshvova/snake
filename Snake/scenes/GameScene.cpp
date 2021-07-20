@@ -48,6 +48,7 @@ void game::GameScene::startDisplay()
 		else if (m_displayMap.checkTailCollision())
 		{
 			gameOver();
+			return;
 		}
 
 		m_displayMap.update();
@@ -60,14 +61,12 @@ void game::GameScene::startInputController()
 	{
 		std::this_thread::sleep_for(std::chrono::milliseconds(config::DEFAULT_GAME_KEYBOARD_READ_SPEED));
 		auto newDirection = parseInputKey(m_inputController->inputKey());
-		if (newDirection == MoveDirection::None)
+		if (newDirection != MoveDirection::None)
 		{
-			continue;
+			m_lockGuard.lock();
+			m_displayMap.updateDirection(newDirection);
+			m_lockGuard.unlock();
 		}
-
-		m_lockGuard.lock();
-		m_displayMap.updateDirection(newDirection);
-		m_lockGuard.unlock();
 	}
 }
 
