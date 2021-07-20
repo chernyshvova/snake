@@ -73,6 +73,8 @@ void game::GameScene::startInputController()
 void game::GameScene::gameOver()
 {
 	m_isGameOver = true;
+	m_drawController->clear();
+	m_drawController->draw(m_displayMap.build());
 	m_drawController->setDiplayColor("");
 }
 
