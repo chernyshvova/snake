@@ -84,8 +84,7 @@ void game::GameScene::gameOver()
 {
 	m_isGameOver = true;
 	m_drawController->clear();
-	m_drawController->draw(m_displayMap.build());
-	m_drawController->setDiplayColor("");
+	m_drawController->draw(config::GAME_OVER_LABEL);
 }
 
 game::MoveDirection game::GameScene::parseInputKey(const int key)

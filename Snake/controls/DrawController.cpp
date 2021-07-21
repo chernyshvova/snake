@@ -54,12 +54,3 @@ void game::DrawController::clear()
     SetConsoleCursorPosition(hStdOut, homeCoords);
 }
 
-void game::DrawController::setDiplayColor(const std::string&)
-{
-	setRedDisplay();
-}
-
-void game::DrawController::setRedDisplay()
-{
-	system("color 41");
-}

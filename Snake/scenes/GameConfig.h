@@ -19,6 +19,7 @@ namespace game
 		static const std::string MENU_LABEL			= "MENU:";
 		static const std::string DEMO_MOVE_LABEL	= "DEMO MODE";
 		static const std::string EXIT_LABEL			= "EXIT";
+		static const std::string GAME_OVER_LABEL    = "GAME OVER";
 
 		//keys
 		static const int INPUT_KEY_TOP				= 72;
